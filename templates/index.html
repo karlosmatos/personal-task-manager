@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2>Personal Task Manager</h2>
+    <div class="container-button">
+        <button type="button" class="button-new-task" data-toggle="modal" data-target="#myModal"><b>Create new task</b></button>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+            <form class="ui form" action="/add" method="post">
+                <button type="button" class="modal-close" data-dismiss="modal">X</button>
+                <div class="field">
+                    <label>Title</label>
+                    <input type="text" class="new-task-title" name="title" placeholder="Enter task..."><br>
+                </div>
+                <div class="field">
+                    <label>Description</label>
+                    <textarea name="description" class="new-task-description" placeholder="Enter Description..."></textarea>
+                </div>
+                <div class="field">
+                    <label>Priority</label>
+                    <select name="priority" class="new-task-priority">
+                        <option value="Crucial">Crucial</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                <div class="field-status">
+                    <label>Status</label>
+                    <select name="status" class="new-task-status">
+                        <option value="0">Active</option>
+                        <option value="1">Inactive</option>
+                    </select>
+                </div>
+                <div class="date">
+                    <label>Due Date</label>
+                    <input type="date" name="date" class="new-task-date">
+                </div>
+                <button class="add-button" type="submit">Add</button>
+            </form>   
+          </div>
+        </div>
+      </div>
+    <div style="margin-top: 50px;" class="ui container">
+        <h2 class="header-task-list">Your task List</h2>
+        <hr>
+
+        {% for task in task_list %}
+        <div class="task-segment">
+            <p class="task-header">{{ task.id }} | {{ task.title }}</p>
+            <hr class="task-line">
+            <p class="task-priority">Priority: {{ task.priority }}</p>
+            {% if task.date < today and task.status == "0" %}
+            <p class="task-date-red" style="color:tomato;"><b>Deadline: {{ task.date }}</b></p>
+            <p class="task-date-notification">TASK AFTER DEADLINE</p>
+            {% else %}
+            <p class="task-date">Deadline: {{ task.date }}</p>
+            {% endif %}
+            <p class="task-description">Description: {{ task.description }}</p>
+
+            {% if task.status == "0" %}
+            <span class="status-not-complete">Not Complete</span>
+            {% else %}
+            <span class="status-complete">Completed</span>
+            {% endif %}
+
+            <a class="update-status-button" href="/update status/{{ task.id }}">Update Status</a>
+            <a class="delete-task-button" href="/delete/{{ task.id }}">Delete</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 body {
     color: #000;
-    background-image: url(/static/img/background.jpeg);
+    background-image: url(/static/img/rose-petals.svg);
 }
 
 h2 {
@@ -8,10 +8,10 @@ h2 {
     font-size: 5rem;
     text-align: center;
     font-weight: 900;
-    color: #000000;
+    color: #e7e5e5;
     margin: 0;
     padding: 60px;
-    text-shadow: 1px 7px 7px #aba8a8;
+    text-shadow: 1px 7px 7px #333333;
     
 }
 

@@ -46,9 +46,6 @@ hr.task-line {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
     font-family: sans-serif;
     font-size: 2rem;
@@ -75,22 +72,16 @@ hr.task-line {
     color: #ffbe00;
     cursor: pointer;
     display: inline-flex;
-    flex: 1 1 auto;
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: 600;
     justify-content: center;
-    line-height: 1;
     margin: 0;
     outline: none;
     padding: 0.5rem 0.5rem;
     text-align: center;
     text-decoration: none;
     transition: all 0.3s ease 0s;
-    white-space: nowrap;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
 }
 
 .update-status-button:hover {
@@ -110,7 +101,6 @@ hr.task-line {
     color: #ff0000;
     cursor: pointer;
     display: inline-flex;
-    flex: 1 1 auto;
     font-family: sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -122,10 +112,6 @@ hr.task-line {
     text-align: center;
     text-decoration: none;
     transition: all 0.3s ease 0s;
-    white-space: nowrap;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
 }
 
 .delete-task-button:hover {
@@ -135,34 +121,24 @@ hr.task-line {
     transform: translateY(-7px);
   }
 
-span.status-not-complete {
+span {
     font-family: sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
     color: #ffffff;
-    background-color: #b30606;
     border-radius: 12px;
     margin: 0;
     padding: 0.5rem 1rem;
     text-align: center;
     text-decoration: none;
-    transition: all 0.3s ease 0s;
-    touch-action: manipulation;
+}
+
+span.status-not-complete {
+    background-color: #b30606;
 }
 
 span.status-complete {
-    font-family: sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #ffffff;
     background-color: #0eae08;
-    border-radius: 12px;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease 0s;
-    touch-action: manipulation;
 }
 
 .task-segment {
@@ -199,18 +175,6 @@ span.status-complete {
     transition: all 0.3s ease 0s;
 }
 
-.task-priority {
-    font-family: sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #000000;
-    padding: 0.5rem 1rem;
-    box-shadow: 1px 1px 10px 1px rgba(255, 0, 0, 0.225);
-    border-radius: 12px;
-    width: fit-content;
-    
-}
-
 .task-description {
     font-family: sans-serif;
     font-size: 0.9rem;
@@ -222,42 +186,43 @@ span.status-complete {
     box-shadow: 1px 1px 10px 0.5px rgba(65, 65, 65, 0.225);
 }
 
-.task-date {
-    font-family: sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #000000;
-    margin-left: 10px;
-    padding: 0.5rem 1rem;
-    border-radius: 12px;
-    box-shadow: 1px 1px 10px 1px rgba(4, 125, 26, 0.225);
-    width: fit-content;
-}
-
 .task-priority, .task-date, .task-date-red, .task-date-notification {
     display: inline;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: sans-serif;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.task-priority {
+    font-size: 1rem;
+    color: #000000;
+    box-shadow: 1px 1px 10px 1px rgba(255, 0, 0, 0.225);
+    border-radius: 12px;
+}
+
+.task-date {
+    font-size: 1rem;
+    color: #000000;
+    margin-left: 10px;
+    border-radius: 12px;
+    box-shadow: 1px 1px 10px 1px rgba(4, 125, 26, 0.225);
 }
 
 .task-date-red {
-    font-family: sans-serif;
     font-size: 1rem;
-    font-weight: 700;
     color: #ff0000;
-    padding: 0.5rem 1rem;
     border-radius: 12px;
     box-shadow: 1px 1px 10px 1px rgba(255, 0, 0, 0.225);
     margin-left: 10px;
 }
 
 .task-date-notification {
-    font-family: sans-serif;
     font-size: 1rem;
-    font-weight: 700;
     color: #ff0000;
-    padding: 0.5rem 1rem;
     margin-left: 10px;
 }
 
@@ -273,15 +238,15 @@ span.status-complete {
     background-color: rgba(0,0,0,0.4); 
   }
   
-  .modal-dialog {
+.modal-dialog {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border-radius: 12px;
     width: 60%;
-  }
+}
   
-  .modal-close {
+.modal-close {
     font-family: sans-serif;
     font-size: 1.2rem;
     margin: 10;
@@ -298,25 +263,24 @@ span.status-complete {
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease 0s;
-  }
+}
   
-  .modal-close:hover,
-  .modal-close:focus {
+.modal-close:hover, .modal-close:focus {
     background-color: rgba(255, 0, 0, 0.693);
     text-decoration: none;
     cursor: pointer;
     transform: translateY(-3px);
-  }
+}
 
-  .field {
+.field {
     font-family: sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
     color: #000000;
     padding: 0.5rem 1rem;
-  }
+}
 
-  .new-task-title {
+.new-task-title, .new-task-description {
     font-family: sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
@@ -332,75 +296,14 @@ span.status-complete {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
-  }
-
-  .new-task-title:focus {
-    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.1);
-    transform: translateY(-3px);
-  }
-
-   .new-task-description {
-    font-family: sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #000000;
-    text-decoration: none;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-radius: 12px;
-    border: solid rgb(189, 189, 189) 2px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-  }
-
-  .new-task-description:focus {
-    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.1);
-    transform: translateY(-3px);
-  }
-
-  .new-task-priority {
-    font-family: sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #000000;
-    text-decoration: none;
-    width: 100%;
-    padding: 7px 15px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-radius: 12px;
-    border: solid rgb(189, 189, 189) 2px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-    width: fit-content;
 }
 
-.new-task-status {
-    font-family: sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #000000;
-    text-decoration: none;
-    width: 100%;
-    padding: 7px 15px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-radius: 12px;
-    border: solid rgb(189, 189, 189) 2px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-    width: fit-content;
+.new-task-title:focus, .new-task-description:focus {
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
 }
 
-.new-task-date {
+.new-task-priority, .new-task-status, .new-task-date {
     font-family: sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
@@ -413,8 +316,6 @@ span.status-complete {
     border-radius: 12px;
     border: solid rgb(189, 189, 189) 2px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
     outline: none;
     width: fit-content;
 }

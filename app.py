@@ -52,10 +52,7 @@ def delete(task_id):
 @app.route('/update status/<int:task_id>', methods=['GET', 'POST'])
 def update_status(task_id):
     task_to_update = db.session.query(TaskManager).filter_by(id=task_id).first()
-    if task_to_update.status == "0":
-        task_to_update.status = "1"
-    else:
-        task_to_update.status = "0"
+    lambda task_to_update.status: "1" if task_to_update.status == "0" else "0"
     db.session.commit()
     return redirect(url_for('home'))
 

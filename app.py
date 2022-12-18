@@ -1,7 +1,6 @@
-from crypt import methods
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime, date
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -24,11 +23,6 @@ def home():
     task_list = db.session.query(TaskManager).all()
     today = datetime.now().date()
     return render_template("index.html", task_list=task_list, today=today)
-
-@app.route('/modal', methods=['GET', 'POST'])
-def modal():
-    return render_template("modal.html", today=today)
-
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
